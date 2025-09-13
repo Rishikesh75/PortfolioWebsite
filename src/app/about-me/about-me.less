@@ -1,0 +1,34 @@
+.Maincontainer {
+    width: 95vw;   
+  height: 95vh;  
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  >div:nth-child(1) {
+    flex: 0 0 60%;
+    background-color: lightcoral;
+    display:  flex;
+    .photo {
+      flex: 0 0 40%;
+      background-color: lightpink;
+    }
+    .about-me {
+        flex: 0 0 60%;
+        background-color: lightcoral;
+        display: flex;
+        flex-direction: column;
+        >div:nth-child(1) {
+            flex: 0 0 80%;
+            background-color: lightcyan;
+        }
+        >div:nth-child(2) {
+            flex: 0 0 20%;
+            background-color: antiquewhite;
+        }
+    }
+  }
+  >div:nth-child(2) {
+    flex: 0 0 40%;
+    background-color: lightblue;
+  }
+}

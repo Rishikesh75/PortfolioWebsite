@@ -1,0 +1,77 @@
+.Maincontainer {
+ width: 95vw;
+ height: 95vh;
+ background-color: aqua;
+ display: flex;
+ flex-direction: column;
+ 
+ >div:nth-child(1)
+ {
+    flex: 0 0 20%;
+    background-color: lightcoral;
+ }
+
+ >div:nth-child(2)
+ {
+    flex: 0 0 80%;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: row;
+    >div:nth-child(1)
+    {
+        flex: 0 0 50%;
+        background-color: lightblue;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        >div:nth-child(1)
+        {
+            flex: 0 0 20%;
+            background-color: lightgreen;
+        }
+        >div:nth-child(2)
+        {
+            flex: 0 0 20%;
+            background-color: rgb(211, 240, 211);
+        }
+        >div:nth-child(3)
+        {
+            flex: 0 0 20%;
+            background-color: lightgreen;
+        }
+        >div:nth-child(4)
+        {
+            flex: 0 0 20%;
+            background-color: rgb(211, 240, 211);
+        }
+    }
+    >div:nth-child(2)
+    {
+        flex: 0 0 50%;
+        background-color: rgb(227, 203, 203);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        >div:nth-child(1)
+        {
+            flex: 0 0 20%;
+            background-color: lightgreen;
+        }
+        >div:nth-child(2)
+        {
+            flex: 0 0 20%;
+            background-color: rgb(211, 240, 211);
+        }
+        >div:nth-child(3)
+        {
+            flex: 0 0 20%;
+            background-color: lightgreen;
+        }
+        >div:nth-child(4)
+        {
+            flex: 0 0 20%;
+            background-color: rgb(211, 240, 211);
+        }
+    }
+ }
+}
