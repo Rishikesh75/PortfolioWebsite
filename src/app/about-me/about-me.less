@@ -13,9 +13,9 @@
       background-color: lightpink;
       display:flex;
       justify-content:center;
-      
+      align-items:center; 
       div {
-        align-self:center;  
+         
         width: 70%;
           height: 70%;
           background: aqua;
@@ -40,6 +40,22 @@
         >div:nth-child(1) {
             flex: 0 0 80%;
             background-color: lightcyan;
+            display:flex;
+            flex-direction:column;
+            >div:nth-child(1)
+            {
+              flex: 0 0 30%;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+            }
+            >div:nth-child(2)
+            {
+              flex: 0 0 70%;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+            }
         }
         >div:nth-child(2) {
             flex: 0 0 20%;

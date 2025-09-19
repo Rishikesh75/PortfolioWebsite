@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-
+import {Skillcard} from '../Component/skillcard/skillcard'
 @Component({
   selector: 'app-about',
-  imports: [],
+  imports: [Skillcard],
   templateUrl: './about-me.html',
   styleUrl: './about-me.less'
 })

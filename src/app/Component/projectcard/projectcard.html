@@ -1,0 +1,31 @@
+<div class="card" role="article" aria-label="Project: {{ title }}">
+<a class="media" [href]="liveUrl || githubUrl" target="_blank" rel="noopener noreferrer" *ngIf="imageUrl; else noImage">
+<img [src]="imageUrl" [alt]="imageAlt" loading="lazy"/>
+</a>
+
+
+<ng-template #noImage>
+<div class="media placeholder">{{ title | slice:0:1 }}</div>
+</ng-template>
+
+
+<div class="content">
+<div class="meta">
+<h3 class="title">{{ title }}</h3>
+<p class="desc">{{ description }}</p>
+</div>
+
+
+<div class="actions">
+<a *ngIf="githubUrl" class="icon-btn" [href]="githubUrl" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
+<!-- GitHub SVG icon -->
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 .5C5.73.5.75 5.48.75 11.77c0 4.95 3.22 9.14 7.69 10.61.56.1.76-.24.76-.54 0-.27-.01-1-.02-1.96-3.13.68-3.79-1.51-3.79-1.51-.51-1.3-1.25-1.64-1.25-1.64-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.17 1.73 1.17 1 .74 2.62.53 3.26.4.1-.31.39-.53.71-.66-2.5-.28-5.13-1.25-5.13-5.56 0-1.23.44-2.23 1.16-3.02-.12-.28-.5-1.41.11-2.95 0 0 .95-.3 3.12 1.16.9-.25 1.86-.38 2.82-.38.96 0 1.92.13 2.82.38 2.17-1.46 3.12-1.16 3.12-1.16.61 1.54.23 2.67.11 2.95.72.79 1.16 1.79 1.16 3.02 0 4.32-2.64 5.28-5.15 5.56.4.35.76 1.04.76 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.2.66.77.55C19.03 20.9 22.25 16.7 22.25 11.77 22.25 5.48 17.27.5 11 .5z" fill="currentColor"/>
+</svg>
+</a>
+
+
+<a *ngIf="liveUrl" class="btn" [href]="liveUrl" target="_blank" rel="noopener noreferrer">Live</a>
+</div>
+</div>
+</div>

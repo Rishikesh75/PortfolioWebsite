@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {Projectcard} from '../Component/projectcard/projectcard'
 @Component({
   selector: 'app-projects',
-  imports: [CommonModule],
+  imports: [CommonModule,Projectcard],
   templateUrl: './projects.html',
   styleUrl: './projects.less'
 })
