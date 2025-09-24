@@ -11,6 +11,6 @@ export class Projectcard {
 @Input() description = 'Short project description goes here. One or two lines.';
 @Input() imageUrl = '';
 @Input() imageAlt = 'Project screenshot';
-@Input() githubUrl = '';
+@Input() githubUrl = 'dfasfsda';
 @Input() liveUrl = '';
 }
