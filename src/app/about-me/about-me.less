@@ -14,20 +14,23 @@
       display:flex;
       justify-content:center;
       align-items:center; 
+     
       div {
          
-        width: 70%;
-          height: 70%;
+          width: 45%;
+          height: 60%;
           background: aqua;
           border-radius: 20%;
           display: flex;          /* centers child */
           align-items: center;
           justify-content: center;
+           overflow: hidden; // Add this line
           img {
-          width: 90%;
-          height: 90%;
+          max-width: 90%;
+          max-height: 90%;
           border-radius: 20%;
-          // object-fit: contain;    /* or 'cover' */
+          // object-fit: contain; 
+           display: block;      /* or 'cover' */
         }
 }
 
@@ -60,6 +63,21 @@
         >div:nth-child(2) {
             flex: 0 0 20%;
             background-color: antiquewhite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 0.5rem;
+            >div:nth-child(1) {
+            width: 100%;
+            height: 100%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            flex-direction:row;
+            column-gap: 3rem;
+            }
+            
         }
     }
   }
