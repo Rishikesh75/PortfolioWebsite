@@ -9,14 +9,35 @@ import {Projectcard} from '../Component/projectcard/projectcard'
 })
 export class Projects {
 
-  items = ['Card 1', 'Card 2', 'Card 3', 'Card 4', 'Card 5'];
 
-scrollLeft(slider: HTMLElement) {
-  slider.scrollBy({ left: -200, behavior: 'smooth' });
-}
+  fullStackProjects = [
+    {
+      title: 'Portfolio Website',
+      description: 'A personal portfolio website built with Angular.',
+      imageUrl: 'assets/portfolio.png',
+      githubUrl: 'https://github.com/username/portfolio',
+      liveUrl: 'https://yourportfolio.com'
+    },
+    // Add more full stack projects here
+  ];
 
-scrollRight(slider: HTMLElement) {
-  slider.scrollBy({ left: 200, behavior: 'smooth' });
-}
+  aiMlProjects = [
+    {
+      title: 'AI/ML Project',
+      description: 'An AI/ML project example.',
+      imageUrl: 'assets/ai-ml.png',
+      githubUrl: 'https://github.com/username/ai-ml-project',
+      liveUrl: 'https://youraimlproject.com'
+    },
+    // Add more AI/ML projects here
+  ];
+
+  scrollLeft(slider: HTMLElement) {
+    slider.scrollBy({ left: -200, behavior: 'smooth' });
+  }
+
+  scrollRight(slider: HTMLElement) {
+    slider.scrollBy({ left: 200, behavior: 'smooth' });
+  }
 
 }
