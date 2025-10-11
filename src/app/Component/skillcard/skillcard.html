@@ -1,18 +1,6 @@
-<div class="card">
-  <div class="card-left">
-    <app-responsive-image 
-      [src]="imageUrl" 
-      [alt]="title + ' skill image'"
-      placeholderType="skill"
-      borderRadius="medium"
-      width="100%"
-      height="100%">
-    </app-responsive-image>
-  </div>
-  <div class="card-right">
-    <h2>{{ title }}</h2>
-    <ul>
-      <li *ngFor="let skill of skills">{{ skill }}</li>
-    </ul>
-  </div>
+<div class="simple-card">
+  <h3>{{ title }}</h3>
+  <ul class="skill-list">
+    <li *ngFor="let skill of skills">{{ skill }}</li>
+  </ul>
 </div>

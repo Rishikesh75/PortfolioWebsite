@@ -16,6 +16,7 @@ export class Projectcard {
   @Input() githubUrl = '';
   @Input() liveUrl = '';
   @Input() techStack: string[] = [];
+  @Input() contentHeight: 'compact' | 'normal' | 'expanded' = 'normal'; // Controls second row height
 
   // Show/hide tech stack
   showTechStack = false;

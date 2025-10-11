@@ -22,6 +22,19 @@
     }
   }
   
+  // Three-row layout structure
+  .row-1 {
+    flex: 0 0 auto; // Fixed height for image
+  }
+  
+  .row-2 {
+    flex: 1 1 auto; // Flexible content area
+  }
+  
+  .row-3 {
+    flex: 0 0 auto; // Fixed height for actions
+  }
+  
   // Ensure consistent card sizes in grid
   .respond-to-desktop({
     min-height: 420px;
@@ -68,23 +81,48 @@
 
 .content {
   padding: @spacing-md;
-  .flex-between();
+  .flex-column();
+  
+  // Adjustable height options for row-2
+  &.height-compact {
+    min-height: 80px;
+    max-height: 120px;
+    overflow: hidden;
+  }
+  
+  &.height-normal {
+    min-height: 120px;
+    max-height: 180px;
+  }
+  
+  &.height-expanded {
+    min-height: 180px;
+    max-height: 240px;
+  }
   
   .respond-to-mobile({
-    .flex-column();
-    align-items: flex-start;
-    gap: @spacing-md;
+    padding: @spacing-sm;
+    
+    &.height-compact {
+      min-height: 70px;
+      max-height: 100px;
+    }
+    
+    &.height-normal {
+      min-height: 100px;
+      max-height: 150px;
+    }
+    
+    &.height-expanded {
+      min-height: 150px;
+      max-height: 200px;
+    }
   });
 }
 
 .meta {
   flex: 1 1 auto;
-  padding-right: @spacing-sm;
-  
-  .respond-to-mobile({
-    padding-right: 0;
-    width: 100%;
-  });
+  width: 100%;
 }
 
 .title {
@@ -103,15 +141,43 @@
   .text-clamp(2);
 }
 
-.actions {
+// Actions Row (Row 3) - Two Column Layout
+.actions-row {
   .flex-row();
-  align-items: center;
-  gap: @spacing-sm;
+  padding: @spacing-md;
+  border-top: 1px solid @border-color;
+  background-color: @bg-secondary;
   
   .respond-to-mobile({
-    width: 100%;
-    justify-content: space-between;
+    padding: @spacing-sm;
   });
+}
+
+.action-column {
+  flex: 1;
+  .flex-center();
+  
+  &.github-column {
+    border-right: 1px solid @border-color;
+    padding-right: @spacing-sm;
+  }
+  
+  &.demo-column {
+    padding-left: @spacing-sm;
+  }
+  
+  .respond-to-mobile({
+    &.github-column,
+    &.demo-column {
+      padding: @spacing-xs;
+    }
+  });
+}
+
+.empty-action {
+  color: @text-muted;
+  font-size: @font-size-sm;
+  font-style: italic;
 }
 
 .icon-btn {

@@ -397,17 +397,29 @@
     }
 
     .skills-grid {
-      .flex-row();
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-auto-rows: auto;
       gap: @spacing-xl;
       
       .respond-to-desktop-small({
-        .flex-column();
+        grid-template-columns: 1fr;
         gap: @spacing-lg;
+      });
+      
+      .respond-to-mobile({
+        grid-template-columns: 1fr;
+        gap: @spacing-md;
       });
 
       .skill-category {
-        flex: 1;
-        .flex-center();
+        display: flex;
+        align-items: stretch;
+        
+        app-skillcard {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
   }

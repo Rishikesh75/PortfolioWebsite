@@ -39,20 +39,9 @@
                     [githubUrl]="project.githubUrl"
                     [liveUrl]="project.liveUrl"
                     [techStack]="project.techStack"
+                    [contentHeight]="project.contentHeight || 'normal'"
                     class="project-card-wrapper">
                 </app-project-card>
-            </div>
-        </div>
-        
-        <!-- Project Statistics -->
-        <div class="project-stats">
-            <div class="stat-item">
-                <span class="stat-number">{{ getCurrentProjects().length }}</span>
-                <span class="stat-label">{{ selectedCategory === 'fullstack' ? 'Full Stack' : 'AI/ML' }} Projects</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">{{ fullStackProjects.length + aiMlProjects.length }}</span>
-                <span class="stat-label">Total Projects</span>
             </div>
         </div>
     </div>

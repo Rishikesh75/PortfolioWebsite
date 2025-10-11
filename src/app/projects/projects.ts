@@ -1,6 +1,18 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {Projectcard} from '../Component/projectcard/projectcard'
+
+// Project interface
+interface Project {
+  title: string;
+  description: string;
+  imageUrl: string;
+  imageAlt: string;
+  githubUrl: string;
+  liveUrl: string;
+  techStack: string[];
+  contentHeight?: 'compact' | 'normal' | 'expanded';
+}
 @Component({
   selector: 'app-projects',
   imports: [CommonModule,Projectcard],
@@ -10,7 +22,7 @@ import {Projectcard} from '../Component/projectcard/projectcard'
 export class Projects {
   selectedCategory = 'fullstack';
   
-  fullStackProjects = [
+  fullStackProjects: Project[] = [
     {
       title: 'Portfolio Website',
       description: 'A modern, responsive portfolio website built with Angular, featuring dynamic components, LESS styling, and smooth animations. Showcases professional work and technical skills.',
@@ -18,7 +30,8 @@ export class Projects {
       imageAlt: 'Portfolio website screenshot',
       githubUrl: 'https://github.com/your-username/portfolio-website',
       liveUrl: 'https://your-portfolio.netlify.app',
-      techStack: ['Angular', 'TypeScript', 'LESS', 'HTML5']
+      techStack: ['Angular', 'TypeScript', 'LESS', 'HTML5'],
+      contentHeight: 'expanded'
     },
     {
       title: 'E-Commerce Platform',
@@ -45,11 +58,12 @@ export class Projects {
       imageAlt: 'Weather dashboard application',
       githubUrl: 'https://github.com/your-username/weather-dashboard',
       liveUrl: 'https://weather-dashboard-app.netlify.app',
-      techStack: ['React', 'Chart.js', 'Weather API', 'PWA']
+      techStack: ['React', 'Chart.js', 'Weather API', 'PWA'],
+      contentHeight: 'compact'
     }
   ];
 
-  aiMlProjects = [
+  aiMlProjects: Project[] = [
     {
       title: 'Smart Image Classifier',
       description: 'Deep learning model for image classification using TensorFlow. Achieves 95% accuracy on custom dataset with data augmentation and transfer learning techniques.',
@@ -93,7 +107,7 @@ export class Projects {
     this.selectedCategory = category;
   }
 
-  getCurrentProjects() {
+  getCurrentProjects(): Project[] {
     return this.selectedCategory === 'fullstack' ? this.fullStackProjects : this.aiMlProjects;
   }
 
@@ -108,7 +122,7 @@ export class Projects {
   }
 
   // Track by function for ngFor optimization
-  trackByTitle(index: number, project: any): string {
+  trackByTitle(index: number, project: Project): string {
     return project.title;
   }
 

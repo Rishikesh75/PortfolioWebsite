@@ -1,63 +1,71 @@
 <div class="card" role="article" aria-label="Project: {{ title }}">
-<div class="media">
-  <app-responsive-image 
-    [src]="imageUrl" 
-    [alt]="imageAlt"
-    placeholderType="project"
-    borderRadius="medium"
-    width="100%"
-    height="100%">
-  </app-responsive-image>
-</div>
+  <!-- Row 1: Media/Image -->
+  <div class="row-1 media">
+    <app-responsive-image 
+      [src]="imageUrl" 
+      [alt]="imageAlt"
+      placeholderType="project"
+      borderRadius="medium"
+      width="100%"
+      height="100%">
+    </app-responsive-image>
+  </div>
 
-
-<div class="content">
-  <div class="meta">
-    <h3 class="title">{{ title }}</h3>
-    <p class="desc">{{ description }}</p>
-    
-    <!-- Tech Stack Toggle -->
-    <button 
-      *ngIf="techStack.length > 0" 
-      class="tech-toggle"
-      (click)="toggleTechStack()"
-      [attr.aria-expanded]="showTechStack"
-      aria-label="Toggle technology stack">
-      <span>{{ showTechStack ? 'Hide' : 'Show' }} Tech Stack</span>
-      <span class="toggle-icon" [class.rotated]="showTechStack">▼</span>
-    </button>
-    
-    <!-- Tech Stack Display -->
-    <div class="tech-stack" [class.visible]="showTechStack" *ngIf="techStack.length > 0">
-      <div class="tech-tags">
-        <span 
-          *ngFor="let tech of techStack" 
-          class="tech-tag"
-          [attr.aria-label]="tech + ' technology'">
-          {{ tech }}
-        </span>
+  <!-- Row 2: Content (with adjustable height) -->
+  <div class="row-2 content" [class]="'height-' + contentHeight">
+    <div class="meta">
+      <h3 class="title">{{ title }}</h3>
+      <p class="desc">{{ description }}</p>
+      
+      <!-- Tech Stack Toggle -->
+      <button 
+        *ngIf="techStack.length > 0" 
+        class="tech-toggle"
+        (click)="toggleTechStack()"
+        [attr.aria-expanded]="showTechStack"
+        aria-label="Toggle technology stack">
+        <span>{{ showTechStack ? 'Hide' : 'Show' }} Tech Stack</span>
+        <span class="toggle-icon" [class.rotated]="showTechStack">▼</span>
+      </button>
+      
+      <!-- Tech Stack Display -->
+      <div class="tech-stack" [class.visible]="showTechStack" *ngIf="techStack.length > 0">
+        <div class="tech-tags">
+          <span 
+            *ngFor="let tech of techStack" 
+            class="tech-tag"
+            [attr.aria-label]="tech + ' technology'">
+            {{ tech }}
+          </span>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="actions">
-    <app-social-icon 
-      *ngIf="githubUrl"
-      type="github" 
-      [url]="githubUrl" 
-      size="small">
-    </app-social-icon>
-
-    <a 
-      *ngIf="liveUrl" 
-      class="btn live-btn" 
-      [href]="liveUrl" 
-      target="_blank" 
-      rel="noopener noreferrer"
-      aria-label="View live project">
-      <span>Live Demo</span>
-      <span class="external-icon">↗</span>
-    </a>
+  <!-- Row 3: Actions (Two Columns) -->
+  <div class="row-3 actions-row">
+    <div class="action-column github-column">
+      <app-social-icon 
+        *ngIf="githubUrl"
+        type="github" 
+        [url]="githubUrl" 
+        size="small">
+      </app-social-icon>
+      <span *ngIf="!githubUrl" class="empty-action">-</span>
+    </div>
+    
+    <div class="action-column demo-column">
+      <a 
+        *ngIf="liveUrl" 
+        class="btn live-btn" 
+        [href]="liveUrl" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        aria-label="View live project">
+        <span>Live Demo</span>
+        <span class="external-icon">↗</span>
+      </a>
+      <span *ngIf="!liveUrl" class="empty-action">-</span>
+    </div>
   </div>
-</div>
 </div>
