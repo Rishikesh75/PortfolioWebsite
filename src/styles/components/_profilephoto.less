@@ -1,0 +1,52 @@
+// Profile Photo Component Styles
+@import '../variables/_spacing.less';
+@import '../base/_layout.less';
+@import '../mixins/_responsive.less';
+@import '../mixins/_utilities.less';
+
+.container {
+  .full-width();
+  .full-height();
+  .flex-center();
+  
+  .respond-to-mobile({
+    margin-top: @spacing-md;
+  });
+}
+
+img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  width: 350px;
+  height: 350px;
+  .border-radius(@border-radius-circle);
+  object-fit: cover;
+  
+  .respond-to-desktop-small({
+    width: 280px;
+    height: 280px;
+  });
+  
+  .respond-to-tablet({
+    width: 240px;
+    height: 240px;
+  });
+  
+  .respond-to-mobile({
+    width: 200px;
+    height: 200px;
+  });
+  
+  .respond-to-mobile-xs({
+    width: 150px;
+    height: 150px;
+  });
+}
+
+.container:hover img {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  .box-shadow(@shadow-medium);
+  
+  .respond-to-mobile({
+    transform: scale(1.02);
+  });
+}

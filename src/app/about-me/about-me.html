@@ -1,75 +1,133 @@
-<div class="Maincontainer">
-    <div class="subcontainer">
-         <!--Photo-->
-        <div class="photo">
-            <div>
-                <img src="Images/AboutMe.png" alt="profileimage">
+<div class="container">
+  <div class="about-content">
+    <!-- About Me Introduction Section -->
+    <div class="about-intro">
+      <div class="profile-section">
+        <div class="profile-image">
+          <div class="dummy-profile-image">
+            <div class="profile-placeholder">
+              <span class="profile-initials">RK</span>
             </div>
+          </div>
         </div>
-
-        <!--About Me-->
-        <div class="about-me">
-            <div class="Content">
-                <!--Heading About Me-->
-                <div>
-                    <p style="font-size: 18px;">About Me</p>
-                </div>
-                <!--Content-->
-                <div>
-                   <ul style="font-size: 18px;">
-                        <li>
-                            My internship journey began at Trimble in January 2025,
-                            where I was part of the Map Viewer team. <br>
-                            I primarily worked on the frontend and contributed to the Turbo Charger Template project. <br>
-                            Using AI, we automated form creation, which reduced template creation time by 50%.
-                        </li>
-                        <li>
-                            Integrated the Agent Workflow into the frontend development lifecycle with the help of MCP servers, 
-                            resulting in a 30% reduction in development time.
-                        </li>
-                        <li>
-                            Currently, I am working on the Revit Exporter, a C# plugin for Revit that converts SketchUp files into TRB files. <br>
-                            My work involves core geometry conversions, such as FacetedBreps and GridLineContainer, from TRB to Revit. <br>
-                            I have also worked on categorizing geometries in Revit using built-in categories. <br>
-                            Additionally, I implemented TID login authentication to ensure that only verified users can access the plugin. <br>
-                            I also developed cleaning logic to optimize geometries, significantly reducing the number of lines.
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer">
-                <div>
-                    <!-- <p style="font-size: 18px;">Follow Me on</p> -->
-                    <img src="/icons/github.png" alt="icon-1" width="24" height="24">
-                    <img src="/icons/kaggle.png" alt="icon-2" width="24" height="24">
-                    <img src="/icons/linkedin.png" alt="icon-3" width="24" height="24">       
-                    <img src="/icons/Leetcode.png" alt="icon-3" width="24" height="24">       
-                </div>
-                <div>
-
-                </div>
-            </div>
-        </div>   
-    </div>
-   
-
-    <!--Fields That that i am Intrested In-->
-    <div class="subcontainer">
-        <div class="slider-container">
-            <div class="slider" #slider>
-                <app-skillcard 
-                title="Development"
-                imageUrl="Images/DevelopmentImage.jpg"
-                [skills]="['HTML', 'CSS', 'JavaScript', 'Angular']"></app-skillcard>
-
-            </div>
-             <div class="slider" #slider>
-                 <app-skillcard 
-                title="AI/ML"
-                imageUrl="Images/AIImage.jpg"
-                [skills]="['Python', 'TensorFlow', 'Pandas', 'Numpy']"></app-skillcard>
-            </div>
-            
+      </div>
+      
+      <div class="intro-content">
+        <div class="section-header">
+          <h1>About Me</h1>
+          <p class="subtitle">Software Developer & Technology Enthusiast</p>
         </div>
+        
+        <div class="intro-text">
+          <p>
+            Passionate about creating efficient, maintainable, and impactful solutions 
+            that bridge the gap between users and technology. Currently working as a 
+            <strong>Software Developer at Trimble</strong>, contributing to innovative 
+            projects in frontend development and AI integration.
+          </p>
+        </div>
+      </div>
     </div>
+
+    <!-- Professional Experience Section -->
+    <div class="experience-section">
+    <div class="section-header">
+      <h2>Professional Journey</h2>
+    </div>
+    
+    <div class="experience-content">
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Frontend Development & AI Integration</h3>
+          <span class="experience-period">January 2025 - Present</span>
+        </div>
+        <div class="experience-details">
+          <p>
+            My internship journey began at <strong>Trimble</strong> as part of the Map Viewer team, 
+            where I primarily worked on frontend development and contributed to the Turbo Charger Template project.
+          </p>
+          <ul class="achievement-list">
+            <li>Automated form creation using AI, reducing template creation time by <strong>50%</strong></li>
+            <li>Integrated Agent Workflow into frontend development lifecycle with MCP servers</li>
+            <li>Achieved a <strong>30% reduction in development time</strong> through workflow optimization</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="experience-item">
+        <div class="experience-header">
+          <h3>Revit Plugin Development</h3>
+          <span class="experience-period">Current Project</span>
+        </div>
+        <div class="experience-details">
+          <p>
+            Currently developing the <strong>Revit Exporter</strong>, a C# plugin that converts 
+            SketchUp files into TRB files with advanced geometry processing capabilities.
+          </p>
+          <ul class="achievement-list">
+            <li>Core geometry conversions including FacetedBreps and GridLineContainer</li>
+            <li>Implemented geometry categorization using Revit's built-in categories</li>
+            <li>Developed TID login authentication for secure plugin access</li>
+            <li>Created cleaning logic to optimize geometries and reduce line complexity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skills & Interests Section -->
+  <div class="skills-section">
+    <div class="section-header">
+      <h2>Areas of Expertise</h2>
+    </div>
+    
+    <div class="skills-grid">
+      <div class="skill-category">
+        <app-skillcard 
+          title="Development"
+          imageUrl="Images/DevelopmentImage.jpg"
+          [skills]="['HTML', 'CSS', 'JavaScript', 'Angular', 'C#', 'TypeScript']">
+        </app-skillcard>
+      </div>
+      
+      <div class="skill-category">
+        <app-skillcard 
+          title="AI/ML"
+          imageUrl="Images/AIImage.jpg"
+          [skills]="['Python', 'TensorFlow', 'Pandas', 'NumPy', 'Machine Learning']">
+        </app-skillcard>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact & Social Section -->
+  <div class="social-section">
+    <div class="section-header">
+      <h2>Let's Connect</h2>
+    </div>
+    
+    <div class="social-links">
+      <app-social-icon 
+        type="github" 
+        url="https://github.com/your-username" 
+        size="medium">
+      </app-social-icon>
+      <app-social-icon 
+        type="kaggle" 
+        url="https://kaggle.com/your-username" 
+        size="medium">
+      </app-social-icon>
+      <app-social-icon 
+        type="linkedin" 
+        url="https://linkedin.com/in/your-username" 
+        size="medium">
+      </app-social-icon>
+      <app-social-icon 
+        type="leetcode" 
+        url="https://leetcode.com/your-username" 
+        size="medium">
+      </app-social-icon>
+    </div>
+  </div>
+  </div>
 </div>

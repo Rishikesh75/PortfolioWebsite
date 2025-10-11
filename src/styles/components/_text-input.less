@@ -1,0 +1,37 @@
+// Text Input Component Styles
+@import '../variables/_colors.less';
+@import '../variables/_spacing.less';
+@import '../variables/_typography.less';
+@import '../mixins/_responsive.less';
+@import '../mixins/_utilities.less';
+
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.full-input {
+  .input-style();
+  height: 100%;
+  font-size: @font-size-lg;
+  
+  .respond-to-mobile({
+    font-size: @font-size-base;
+    padding: @spacing-md;
+  });
+}
+
+// Text Box (Textarea) Styles
+.full-textbox {
+  .input-style();
+  resize: vertical;
+  min-height: 120px;
+  font-family: @font-family-primary;
+  line-height: @line-height-base;
+  
+  .respond-to-mobile({
+    font-size: @font-size-base;
+    min-height: 100px;
+  });
+}

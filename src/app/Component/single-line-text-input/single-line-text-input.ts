@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-single-line-text-input',
   imports: [],
   templateUrl: './single-line-text-input.html',
-  styleUrl: './single-line-text-input.less'
+  styleUrl: '../../../styles/components/_text-input.less'
 })
 export class SingleLineTextInput {
 

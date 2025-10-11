@@ -1,0 +1,48 @@
+// App Component Base Styles
+@import '../variables/index.less';
+@import '../mixins/index.less';
+
+body, html {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: @font-family-primary;
+}
+
+.sections {
+  margin-top: @navbar-height;
+  
+  .respond-to-mobile({
+    margin-top: calc(@navbar-height + @spacing-md);
+  });
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: @font-size-3xl;
+  scroll-snap-align: start;
+  
+  // For about, projects, and contact sections specifically, allow natural content flow
+  &#about,
+  &#projects,
+  &#contact {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+  
+  .respond-to-mobile({
+    min-height: auto;
+    padding: @spacing-lg 0;
+    font-size: @font-size-xl;
+    
+    &#about,
+    &#projects,
+    &#contact {
+      padding: @spacing-md 0;
+    }
+  });
+}

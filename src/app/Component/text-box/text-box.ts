@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-text-box',
   imports: [],
   templateUrl: './text-box.html',
-  styleUrl: './text-box.less'
+  styleUrl: '../../../styles/components/_text-input.less'
 })
 export class TextBox {
 

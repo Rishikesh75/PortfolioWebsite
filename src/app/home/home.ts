@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Profilephoto } from "../profilephoto/profilephoto";
 import { Button } from '../Component/button/button';
 @Component({
   selector: 'app-home',
-  imports: [ Profilephoto,Button],
+  imports: [Button],
   templateUrl: './home.html',
-  styleUrl: './home.less'
+  styleUrl: '../../styles/pages/_home.less'
 })
 export class Home {
   onDownloadCV()

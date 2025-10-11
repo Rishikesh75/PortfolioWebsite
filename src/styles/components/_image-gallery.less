@@ -1,0 +1,136 @@
+// Image Gallery and Responsive Image Utilities
+@import '../variables/index.less';
+@import '../mixins/index.less';
+
+// Image gallery container
+.image-gallery {
+  display: grid;
+  gap: @spacing-md;
+  width: 100%;
+  
+  &.grid-1 {
+    grid-template-columns: 1fr;
+  }
+  
+  &.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+    
+    .respond-to-mobile({
+      grid-template-columns: 1fr;
+    });
+  }
+  
+  &.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+    
+    .respond-to-tablet({
+      grid-template-columns: repeat(2, 1fr);
+    });
+    
+    .respond-to-mobile({
+      grid-template-columns: 1fr;
+    });
+  }
+  
+  &.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    
+    .respond-to-desktop-small({
+      grid-template-columns: repeat(3, 1fr);
+    });
+    
+    .respond-to-tablet({
+      grid-template-columns: repeat(2, 1fr);
+    });
+    
+    .respond-to-mobile({
+      grid-template-columns: 1fr;
+    });
+  }
+}
+
+// Responsive image aspect ratios
+.aspect-ratio {
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+  }
+  
+  &.aspect-1-1:before {
+    padding-top: 100%; // 1:1 square
+  }
+  
+  &.aspect-4-3:before {
+    padding-top: 75%; // 4:3
+  }
+  
+  &.aspect-16-9:before {
+    padding-top: 56.25%; // 16:9
+  }
+  
+  &.aspect-3-2:before {
+    padding-top: 66.666%; // 3:2
+  }
+  
+  .responsive-image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// Image overlay effects
+.image-overlay {
+  position: relative;
+  overflow: hidden;
+  
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent 30%, rgba(0,0,0,0.3) 70%);
+    opacity: 0;
+    .transition(opacity);
+    z-index: 1;
+  }
+  
+  &:hover:before {
+    opacity: 1;
+  }
+  
+  .overlay-content {
+    position: absolute;
+    bottom: @spacing-md;
+    left: @spacing-md;
+    right: @spacing-md;
+    color: @text-white;
+    transform: translateY(100%);
+    .transition(transform);
+    z-index: 2;
+    
+    h3 {
+      font-size: @font-size-lg;
+      font-weight: @font-weight-semibold;
+      margin: 0 0 @spacing-xs 0;
+    }
+    
+    p {
+      font-size: @font-size-sm;
+      margin: 0;
+      opacity: 0.9;
+    }
+  }
+  
+  &:hover .overlay-content {
+    transform: translateY(0);
+  }
+}

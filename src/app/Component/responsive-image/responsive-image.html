@@ -1,0 +1,30 @@
+<div class="responsive-image-container" 
+     [style.width]="width" 
+     [style.height]="height"
+     [class]="'border-radius-' + borderRadius">
+  
+  <!-- Loading placeholder -->
+  <div class="image-placeholder loading" 
+       *ngIf="!imageLoaded && !imageError"
+       [class]="getPlaceholderClass()">
+    <div class="loading-spinner"></div>
+  </div>
+  
+  <!-- Actual image -->
+  <img 
+    [src]="src"
+    [alt]="alt"
+    class="responsive-image"
+    [class.loaded]="imageLoaded"
+    *ngIf="src && !imageError"
+    (load)="onImageLoad()"
+    (error)="onImageError()"
+    loading="lazy" />
+  
+  <!-- Error/Fallback placeholder -->
+  <div class="image-placeholder fallback"
+       *ngIf="imageError || !src"
+       [class]="getPlaceholderClass()">
+    <span class="placeholder-text">{{ getPlaceholderContent() }}</span>
+  </div>
+</div>

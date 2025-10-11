@@ -1,0 +1,96 @@
+// Skill Card Component Styles
+@import '../variables/_colors.less';
+@import '../variables/_spacing.less';
+@import '../variables/_typography.less';
+@import '../mixins/_responsive.less';
+@import '../mixins/_utilities.less';
+
+.card {
+  .card-style();
+  .flex-row();
+  width: 100%;
+  max-width: 500px;
+  min-height: 200px;
+  
+  .respond-to-tablet({
+    .flex-column();
+    max-width: 100%;
+  });
+  
+  .respond-to-mobile({
+    margin-bottom: @spacing-md;
+  });
+}
+
+.card-left {
+  flex: 1;
+  overflow: hidden;
+  .flex-center();
+  
+  .respond-to-tablet({
+    flex: 0 0 150px;
+  });
+  
+  .respond-to-mobile({
+    flex: 0 0 120px;
+  });
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    .transition(transform);
+  }
+}
+
+.card-right {
+  flex: 1;
+  padding: @spacing-lg;
+  
+  .respond-to-mobile({
+    padding: @spacing-md;
+  });
+  
+  h2 {
+    margin: 0 0 @spacing-md 0;
+    font-size: @font-size-2xl;
+    color: @text-primary;
+    font-weight: @font-weight-semibold;
+    
+    .respond-to-mobile({
+      font-size: @font-size-xl;
+      margin-bottom: @spacing-sm;
+    });
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    font-size: @font-size-lg;
+    margin-bottom: @spacing-sm;
+    color: @text-secondary;
+    position: relative;
+    padding-left: @spacing-md;
+    
+    &:before {
+      content: '•';
+      color: @primary-color;
+      position: absolute;
+      left: 0;
+      font-weight: @font-weight-bold;
+    }
+    
+    .respond-to-mobile({
+      font-size: @font-size-base;
+      margin-bottom: @spacing-xs;
+    });
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

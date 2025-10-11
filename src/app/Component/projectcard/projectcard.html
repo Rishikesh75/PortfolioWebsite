@@ -1,29 +1,63 @@
 <div class="card" role="article" aria-label="Project: {{ title }}">
-<a class="media" [href]="liveUrl || githubUrl" target="_blank" rel="noopener noreferrer" *ngIf="imageUrl; else noImage">
-<img [src]="imageUrl" [alt]="imageAlt" loading="lazy"/>
-</a>
-
-
-<ng-template #noImage>
-<div class="media placeholder">{{ title | slice:0:1 }}</div>
-</ng-template>
+<div class="media">
+  <app-responsive-image 
+    [src]="imageUrl" 
+    [alt]="imageAlt"
+    placeholderType="project"
+    borderRadius="medium"
+    width="100%"
+    height="100%">
+  </app-responsive-image>
+</div>
 
 
 <div class="content">
-<div class="meta">
-<h3 class="title">{{ title }}</h3>
-<p class="desc">{{ description }}</p>
-</div>
+  <div class="meta">
+    <h3 class="title">{{ title }}</h3>
+    <p class="desc">{{ description }}</p>
+    
+    <!-- Tech Stack Toggle -->
+    <button 
+      *ngIf="techStack.length > 0" 
+      class="tech-toggle"
+      (click)="toggleTechStack()"
+      [attr.aria-expanded]="showTechStack"
+      aria-label="Toggle technology stack">
+      <span>{{ showTechStack ? 'Hide' : 'Show' }} Tech Stack</span>
+      <span class="toggle-icon" [class.rotated]="showTechStack">▼</span>
+    </button>
+    
+    <!-- Tech Stack Display -->
+    <div class="tech-stack" [class.visible]="showTechStack" *ngIf="techStack.length > 0">
+      <div class="tech-tags">
+        <span 
+          *ngFor="let tech of techStack" 
+          class="tech-tag"
+          [attr.aria-label]="tech + ' technology'">
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+  </div>
 
+  <div class="actions">
+    <app-social-icon 
+      *ngIf="githubUrl"
+      type="github" 
+      [url]="githubUrl" 
+      size="small">
+    </app-social-icon>
 
-<div class="actions">
-<a *ngIf="githubUrl" class="icon-btn" [href]="githubUrl" target="_blank" rel="noopener noreferrer" aria-label="Open GitHub repository">
-<!-- GitHub SVG icon -->
-<img src="/icons/github.png" alt="icon-1" width="24" height="24">
-</a>
-
-
-<a *ngIf="liveUrl" class="btn" [href]="liveUrl" target="_blank" rel="noopener noreferrer">Live</a>
-</div>
+    <a 
+      *ngIf="liveUrl" 
+      class="btn live-btn" 
+      [href]="liveUrl" 
+      target="_blank" 
+      rel="noopener noreferrer"
+      aria-label="View live project">
+      <span>Live Demo</span>
+      <span class="external-icon">↗</span>
+    </a>
+  </div>
 </div>
 </div>

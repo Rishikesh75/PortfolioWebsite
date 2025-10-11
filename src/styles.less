@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+/* Portfolio Website - Main Styles */
+
+// Import base styles first
+@import 'styles/base/index.less';
+
+// Import variables and mixins
+@import 'styles/variables/index.less';
+@import 'styles/mixins/index.less';
+
+// Import component styles
+@import 'styles/components/index.less';
+
+// Import page styles
+@import 'styles/pages/index.less';
+
+// Global utility classes
+.visually-hidden {
+  .sr-only();
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: @spacing-xs; }
+.mb-2 { margin-bottom: @spacing-sm; }
+.mb-3 { margin-bottom: @spacing-md; }
+.mb-4 { margin-bottom: @spacing-lg; }
+.mb-5 { margin-bottom: @spacing-xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: @spacing-xs; }
+.mt-2 { margin-top: @spacing-sm; }
+.mt-3 { margin-top: @spacing-md; }
+.mt-4 { margin-top: @spacing-lg; }
+.mt-5 { margin-top: @spacing-xl; }

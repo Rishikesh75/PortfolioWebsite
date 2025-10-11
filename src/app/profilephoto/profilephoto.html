@@ -1,8 +1,11 @@
 <!-- profile-photo.component.html -->
 <div class="container">
-    <img 
+    <app-responsive-image 
       [src]="src" 
-      [alt]="alt" 
-      class="w-full h-full object-cover"
-    />
+      [alt]="alt"
+      placeholderType="profile"
+      borderRadius="circle"
+      width="100%"
+      height="100%">
+    </app-responsive-image>
 </div>

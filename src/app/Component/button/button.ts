@@ -4,7 +4,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   selector: 'app-button',
   imports: [],
   templateUrl: './button.html',
-  styleUrl: './button.less'
+  styleUrl: '../../../styles/components/_button.less'
 })
 export class Button {
 @Input() text: string = 'Click Me';

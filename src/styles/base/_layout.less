@@ -1,0 +1,129 @@
+// Layout Base Styles
+@import '../variables/_spacing.less';
+@import '../mixins/_responsive.less';
+
+.sections {
+  margin-top: @navbar-height;
+}
+
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  scroll-snap-align: start;
+  padding: @section-padding;
+  
+  // For about, projects, and contact sections specifically, allow natural content flow
+  &#about,
+  &#projects,
+  &#contact {
+    min-height: auto;
+    justify-content: flex-start;
+    padding-top: @spacing-xl;
+    padding-bottom: @spacing-xl;
+  }
+  
+  .respond-to-mobile({
+    min-height: auto;
+    padding: @spacing-md;
+    
+    &#about,
+    &#projects,
+    &#contact {
+      padding-top: @spacing-lg;
+      padding-bottom: @spacing-lg;
+    }
+  });
+}
+
+// Container Mixin Definition
+.container() {
+  width: 100%;
+  max-width: @container-max;
+  margin: 0 auto;
+  padding: 0 @spacing-md;
+
+  .respond-to-tablet({
+    width: @container-tablet;
+  });
+
+  .respond-to-mobile({
+    width: @container-mobile;
+    padding: 0 @spacing-sm;
+  });
+}
+
+// Main container patterns  
+.main-container {
+  width: 95vw;
+  height: 95vh;
+  .container();
+  
+  .respond-to-desktop-small({
+    width: 90vw;
+    height: auto;
+    min-height: 90vh;
+  });
+  
+  .respond-to-tablet({
+    width: 95vw;
+    height: auto;
+    min-height: 100vh;
+  });
+  
+  .respond-to-mobile({
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    padding: @spacing-sm;
+  });
+}
+
+// Common layout utilities and mixins
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+// Utility mixins
+.full-width() {
+  width: 100%;
+}
+
+.full-height() {
+  height: 100%;
+}
+
+.main-container() {
+  width: 95vw;
+  height: 95vh;
+  .container();
+  
+  .respond-to-desktop-small({
+    width: 90vw;
+    height: auto;
+    min-height: 90vh;
+  });
+  
+  .respond-to-tablet({
+    width: 95vw;
+    height: auto;
+    min-height: 100vh;
+  });
+  
+  .respond-to-mobile({
+    width: 100vw;
+    height: auto;
+    min-height: 100vh;
+    padding: @spacing-sm;
+  });
+}
+
+.section-spacing {
+  padding: @section-padding 0;
+}

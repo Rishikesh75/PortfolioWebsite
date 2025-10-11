@@ -1,0 +1,240 @@
+// Project Card Component Styles
+@import '../variables/_colors.less';
+@import '../variables/_spacing.less';
+@import '../variables/_typography.less';
+@import '../mixins/_responsive.less';
+@import '../mixins/_utilities.less';
+
+.card {
+  .card-style();
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  .transition(transform, box-shadow, opacity);
+  .flex-column();
+  
+  &:hover {
+    transform: translateY(-5px);
+    .box-shadow(0 8px 25px @shadow-medium);
+    
+    .media img {
+      transform: scale(1.03);
+    }
+  }
+  
+  // Ensure consistent card sizes in grid
+  .respond-to-desktop({
+    min-height: 420px;
+  });
+  
+  .respond-to-tablet({
+    min-height: 380px;
+  });
+  
+  .respond-to-mobile({
+    min-height: 350px;
+    margin-bottom: 0;
+  });
+}
+
+.media {
+  overflow: hidden;
+  height: 220px;
+  position: relative;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    .transition(transform);
+  }
+  
+  &.placeholder {
+    .flex-center();
+    font-size: @font-size-4xl;
+    color: @text-muted;
+    background-color: @bg-secondary;
+    
+    .respond-to-mobile({
+      height: 180px;
+      font-size: @font-size-3xl;
+    });
+  }
+  
+  .respond-to-mobile({
+    height: 180px;
+  });
+}
+
+.content {
+  padding: @spacing-md;
+  .flex-between();
+  
+  .respond-to-mobile({
+    .flex-column();
+    align-items: flex-start;
+    gap: @spacing-md;
+  });
+}
+
+.meta {
+  flex: 1 1 auto;
+  padding-right: @spacing-sm;
+  
+  .respond-to-mobile({
+    padding-right: 0;
+    width: 100%;
+  });
+}
+
+.title {
+  margin: 0 0 @spacing-xs 0;
+  font-size: @font-size-lg;
+  font-weight: @font-weight-semibold;
+  line-height: @line-height-tight;
+  color: @text-primary;
+}
+
+.desc {
+  margin: 0;
+  font-size: @font-size-sm;
+  color: @text-muted;
+  line-height: @line-height-base;
+  .text-clamp(2);
+}
+
+.actions {
+  .flex-row();
+  align-items: center;
+  gap: @spacing-sm;
+  
+  .respond-to-mobile({
+    width: 100%;
+    justify-content: space-between;
+  });
+}
+
+.icon-btn {
+  .flex-center();
+  width: 36px;
+  height: 36px;
+  .border-radius(@border-radius);
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: @text-secondary;
+  .transition(background-color, color);
+  
+  &:hover {
+    background-color: @bg-secondary;
+    color: @primary-color;
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+// Tech Stack Styles
+.tech-toggle {
+  background: none;
+  border: none;
+  color: @text-secondary;
+  font-size: @font-size-xs;
+  padding: @spacing-xs 0;
+  cursor: pointer;
+  .flex-between();
+  width: 100%;
+  margin-top: @spacing-xs;
+  .transition(color);
+  
+  &:hover {
+    color: @primary-color;
+  }
+  
+  .toggle-icon {
+    .transition(transform);
+    
+    &.rotated {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.tech-stack {
+  max-height: 0;
+  overflow: hidden;
+  .transition(max-height);
+  margin-top: @spacing-xs;
+  
+  &.visible {
+    max-height: 100px;
+  }
+}
+
+.tech-tags {
+  .flex-row();
+  flex-wrap: wrap;
+  gap: @spacing-xs;
+  margin-top: @spacing-xs;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 2px @spacing-xs;
+  font-size: @font-size-xs;
+  background-color: @bg-secondary;
+  color: @text-secondary;
+  .border-radius(@border-radius-sm);
+  border: 1px solid @border-color;
+  .transition(all);
+  
+  &:hover {
+    background-color: @primary-color;
+    color: @text-white;
+    border-color: @primary-color;
+  }
+}
+
+// Button Styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: @spacing-xs;
+  padding: @spacing-sm @spacing-md;
+  .border-radius(@border-radius);
+  text-decoration: none;
+  border: 1px solid @border-color;
+  font-size: @font-size-sm;
+  color: @text-primary;
+  background-color: @bg-primary;
+  .transition(all);
+  
+  &:hover {
+    border-color: @primary-color;
+    color: @primary-color;
+    transform: translateY(-1px);
+  }
+  
+  &.live-btn {
+    background: linear-gradient(135deg, @primary-color, lighten(@primary-color, 10%));
+    color: @text-white;
+    border-color: @primary-color;
+    
+    &:hover {
+      background: linear-gradient(135deg, darken(@primary-color, 5%), @primary-color);
+      transform: translateY(-2px);
+      .box-shadow(0 4px 12px rgba(59, 130, 246, 0.4));
+    }
+    
+    .external-icon {
+      font-size: @font-size-lg;
+      .transition(transform);
+    }
+    
+    &:hover .external-icon {
+      transform: translate(2px, -2px);
+    }
+  }
+}

@@ -1,6 +1,13 @@
 <div class="card">
   <div class="card-left">
-    <img [src]="imageUrl" alt="{{ title }} image">
+    <app-responsive-image 
+      [src]="imageUrl" 
+      [alt]="title + ' skill image'"
+      placeholderType="skill"
+      borderRadius="medium"
+      width="100%"
+      height="100%">
+    </app-responsive-image>
   </div>
   <div class="card-right">
     <h2>{{ title }}</h2>

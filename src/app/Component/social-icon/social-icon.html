@@ -1,0 +1,8 @@
+<a [href]="url" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="social-icon"
+   [class]="getIconClass() + ' ' + getSizeClass()"
+   [attr.aria-label]="type + ' profile'">
+  <span class="icon-content">{{ type.charAt(0).toUpperCase() }}</span>
+</a>

@@ -1,36 +1,59 @@
-<div class="Maincontainer">
-    <!--My Projects Heading-->
-    <div>
-         <p style="font-size: 18px;">My projects</p>
+<div class="Maincontainer" role="main" aria-label="Projects section">
+    <!-- Projects Header -->
+    <div class="section-header">
+        <h1>My Projects</h1>
+        <p class="subtitle">Showcasing my technical expertise through innovative solutions</p>
     </div>
-    <div>
-        <p style="font-size: 18px;">Full Stack Projects</p>
-        <p style="font-size: 18px;">AI/ML projects</p>
+    
+    <!-- Category Navigation -->
+    <div class="category-nav" role="navigation" aria-label="Project categories">
+        <button 
+            class="filter-button"
+            [class.active]="selectedCategory === 'fullstack'"
+            (click)="selectCategory('fullstack')"
+            aria-label="View Full Stack Projects">
+            <span class="category-title">Full Stack Development</span>
+            <span class="project-count">({{ getProjectCount('fullstack') }} projects)</span>
+        </button>
+        
+        <button 
+            class="filter-button"
+            [class.active]="selectedCategory === 'aiml'"
+            (click)="selectCategory('aiml')"
+            aria-label="View AI/ML Projects">
+            <span class="category-title">AI & Machine Learning</span>
+            <span class="project-count">({{ getProjectCount('aiml') }} projects)</span>
+        </button>
     </div>
-    <!--Slider-->
-    <div>
-        <div class="slider-container">
-            <div class="slider" #slider>
-             
+    
+    <!-- Projects Display -->
+    <div class="projects-section">
+        <div class="projects-container">
+            <div class="project-grid">
                 <app-project-card
-                  *ngFor="let project of fullStackProjects"
-                  [title]="project.title"
-                  [description]="project.description"
-                  [imageUrl]="project.imageUrl"
-                  [githubUrl]="project.githubUrl"
-                  [liveUrl]="project.liveUrl">
+                    *ngFor="let project of getCurrentProjects(); trackBy: trackByTitle"
+                    [title]="project.title"
+                    [description]="project.description"
+                    [imageUrl]="project.imageUrl"
+                    [imageAlt]="project.imageAlt"
+                    [githubUrl]="project.githubUrl"
+                    [liveUrl]="project.liveUrl"
+                    [techStack]="project.techStack"
+                    class="project-card-wrapper">
                 </app-project-card>
-            </div>
-             <div class="slider" #slider>
-               <app-project-card
-                  *ngFor="let project of aiMlProjects"
-                  [title]="project.title"
-                  [description]="project.description"
-                  [imageUrl]="project.imageUrl"
-                  [githubUrl]="project.githubUrl"
-                  [liveUrl]="project.liveUrl">
-                </app-project-card>
-            </div>
             </div>
         </div>
+        
+        <!-- Project Statistics -->
+        <div class="project-stats">
+            <div class="stat-item">
+                <span class="stat-number">{{ getCurrentProjects().length }}</span>
+                <span class="stat-label">{{ selectedCategory === 'fullstack' ? 'Full Stack' : 'AI/ML' }} Projects</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">{{ fullStackProjects.length + aiMlProjects.length }}</span>
+                <span class="stat-label">Total Projects</span>
+            </div>
+        </div>
+    </div>
 </div>

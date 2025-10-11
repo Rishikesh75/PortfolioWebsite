@@ -1,37 +1,37 @@
 <div class="container">
     <div class="info">
         <div>
-            <div class="temp">  
-                <p>Hi This is Rishikesh</p>
+            <div class="hero-name">  
+                <p>Hi, I'm John Doe</p>
             </div>
-            <div>
-                <!--Role--> <p>Software Developer</p>
+            <div class="hero-role">
+                <p>Full Stack Developer</p>
             </div>
         </div>
         <div>
-            <div>
-                <!--brief--> 
+            <div class="bio-content">
                 <p class="intro-text">
-    Currently working as a <strong>Software Developer at Trimble</strong>.  
-    I graduated in 2025 from <strong>IIITDM Kancheepuram</strong>, where I developed a strong 
-    foundation in software engineering, web technologies, system design, and AI.  <br>
-    My interests lie in creating efficient, maintainable, and impactful solutions that 
-    bridge the gap between users and technology.  
-    Beyond work, I enjoy exploring new tools, contributing to projects, and continuously 
-    enhancing my skills in full-stack development.
-</p>
-
+                    Passionate about creating innovative web solutions and user experiences. 
+                    I specialize in <strong>modern JavaScript frameworks</strong> and <strong>cloud technologies</strong>.
+                    With experience in both frontend and backend development, I enjoy building 
+                    scalable applications that make a difference.<br><br>
+                    My expertise spans across various technologies including React, Angular, Node.js, 
+                    and cloud platforms. I'm always eager to learn new technologies and contribute 
+                    to meaningful projects that solve real-world problems.
+                </p>
             </div>
         </div>
         <div>
-            <!--Button To Download-->
-            <div>
+            <div class="action-button">
                 <app-button (clicked)="onDownloadCV()" text="Download CV"></app-button>
             </div>
         </div>
     </div>
     <div class="profile-photo">
-        <app-profilephoto></app-profilephoto>
+        <div class="dummy-profile-container">
+            <div class="profile-placeholder">
+                <span class="profile-initials">JD</span>
+            </div>
+        </div>
     </div>
-    
 </div>

@@ -8,9 +8,9 @@ import { Navbar } from './navbar/navbar';
 import { Button } from './Component/button/button';
 @Component({
   selector: 'app-root',
-  imports: [ Home, AboutMe, Projects, Contact, Navbar, Button],
+  imports: [ Home, AboutMe, Projects, Contact, Navbar],
   templateUrl: './app.html',
-  styleUrl: './app.less'
+  styleUrl: '../styles/pages/_app.less'
 })
 export class App {
   protected readonly title = signal('RishikeshPortfolio');

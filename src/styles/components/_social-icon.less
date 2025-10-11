@@ -1,0 +1,103 @@
+// Social Icon Component Styles
+@import '../variables/index.less';
+@import '../mixins/index.less';
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  .border-radius(@border-radius-circle);
+  text-decoration: none;
+  font-weight: @font-weight-bold;
+  color: @text-white;
+  .transition(all);
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    transform: scale(1.1);
+    .box-shadow(@shadow-medium);
+  }
+  
+  .respond-to-mobile({
+    &:hover {
+      transform: scale(1.05);
+    }
+  });
+}
+
+// Size variants
+.size-small {
+  width: 32px;
+  height: 32px;
+  font-size: @font-size-sm;
+  
+  .respond-to-mobile({
+    width: 28px;
+    height: 28px;
+    font-size: @font-size-xs;
+  });
+}
+
+.size-medium {
+  width: 48px;
+  height: 48px;
+  font-size: @font-size-base;
+  
+  .respond-to-mobile({
+    width: 40px;
+    height: 40px;
+    font-size: @font-size-sm;
+  });
+}
+
+.size-large {
+  width: 64px;
+  height: 64px;
+  font-size: @font-size-lg;
+  
+  .respond-to-mobile({
+    width: 52px;
+    height: 52px;
+    font-size: @font-size-base;
+  });
+}
+
+// Social platform specific styles
+.social-icon-github {
+  background: linear-gradient(135deg, #333, #666);
+  
+  &:hover {
+    background: linear-gradient(135deg, #24292e, #586069);
+  }
+}
+
+.social-icon-linkedin {
+  background: linear-gradient(135deg, #0077b5, #00a0dc);
+  
+  &:hover {
+    background: linear-gradient(135deg, #005582, #0077b5);
+  }
+}
+
+.social-icon-kaggle {
+  background: linear-gradient(135deg, #20beff, #1ba3d7);
+  
+  &:hover {
+    background: linear-gradient(135deg, #0f7cb0, #20beff);
+  }
+}
+
+.social-icon-leetcode {
+  background: linear-gradient(135deg, #ffa116, #ff8c42);
+  
+  &:hover {
+    background: linear-gradient(135deg, #e8890b, #ffa116);
+  }
+}
+
+.icon-content {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
