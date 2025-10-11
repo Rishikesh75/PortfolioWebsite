@@ -38,6 +38,7 @@
     .box-shadow(0 8px 25px rgba(37, 99, 235, 0.1));
     border: 1px solid #e2e8f0;
     transition: all 0.3s ease;
+    padding: @spacing-lg;
     
     &:hover {
       .box-shadow(0 12px 35px rgba(37, 99, 235, 0.15));
@@ -57,54 +58,24 @@
       min-height: auto;
     });
 
-    // Dummy profile image styling
-    .dummy-profile-container {
+    .profile-image {
       width: 100%;
       height: 100%;
-      .flex-center();
-      padding: @spacing-xl;
+      object-fit: cover;
+      .border-radius(@border-radius-circle);
+      .box-shadow(0 4px 15px rgba(0, 0, 0, 0.1));
       
-      .respond-to-mobile({
-        padding: @spacing-lg;
-      });
-
-      .profile-placeholder {
+      .respond-to-desktop-small({
         width: 280px;
         height: 280px;
-        background: linear-gradient(135deg, @uniform-primary, lighten(@uniform-primary, 20%));
-        .border-radius(@border-radius-circle);
-        .flex-center();
-        position: relative;
-        .box-shadow(0 8px 25px rgba(37, 99, 235, 0.15));
-        border: 3px solid @uniform-primary;
-        
-        .respond-to-desktop-small({
-          width: 220px;
-          height: 220px;
-        });
-        
-        .respond-to-mobile({
-          width: 180px;
-          height: 180px;
-        });
-        
-        .profile-initials {
-          font-size: @font-size-5xl;
-          font-weight: @font-weight-bold;
-          color: @text-white;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          
-          .respond-to-desktop-small({
-            font-size: @font-size-4xl;
-          });
-          
-          .respond-to-mobile({
-            font-size: @font-size-3xl;
-          });
-        }
-      }
+      });
+      
+      .respond-to-mobile({
+        width: 200px;
+        height: 200px;
+      });
     }
+
   }
 
   .info {
@@ -117,7 +88,8 @@
       flex: 0 0 auto;
       width: 100%;
     });
-
+    
+    //Name Section(Kotla Rishikesh Reddy)
     > div:nth-child(1) {
       flex: 0 0 40%;
       .flex-column();
@@ -187,6 +159,7 @@
       }
     }
 
+    //Main Content
     > div:nth-child(2) {
       flex: 0 0 50%;
       background: @bg-container;
@@ -239,22 +212,11 @@
       }
     }
 
+    //Downlaod Cv Button
     > div:nth-child(3) {
       flex: 0 0 10%;
-      background: @bg-container;
-      .border-radius(@border-radius-lg);
       .flex-center();
       position: relative;
-      .box-shadow(0 6px 20px rgba(37, 99, 235, 0.08));
-      border: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
-      
-      &:hover {
-        transform: translateY(-1px);
-        .box-shadow(0 10px 30px rgba(37, 99, 235, 0.12));
-        background: @bg-container-hover;
-      }
-      
       .respond-to-desktop-small({
         flex: 0 0 auto;
         min-height: 70px;

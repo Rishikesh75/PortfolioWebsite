@@ -1,10 +1,10 @@
 import { Component, Input } from '@angular/core';
 import {CommonModule} from '@angular/common';
-import { ResponsiveImage } from '../responsive-image/responsive-image';
 import { SocialIcon } from '../social-icon/social-icon'
 @Component({
   selector: 'app-project-card',
-  imports: [CommonModule, ResponsiveImage, SocialIcon],
+  standalone: true,
+  imports: [CommonModule, SocialIcon],
   templateUrl: './projectcard.html',
   styleUrl: '../../../styles/components/_projectcard.less'
 })

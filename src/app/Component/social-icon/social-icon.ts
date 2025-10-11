@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-social-icon',
+  standalone: true,
   imports: [],
   templateUrl: './social-icon.html',
   styleUrl: '../../../styles/components/_social-icon.less'

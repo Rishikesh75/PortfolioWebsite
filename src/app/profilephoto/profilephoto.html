@@ -1,11 +1,33 @@
 <!-- profile-photo.component.html -->
 <div class="container">
-    <app-responsive-image 
+    <!-- Responsive Picture Element -->
+    <picture *ngIf="useResponsive && (mobileXsSrc || mobileSrc || tabletSrc || desktopMediumSrc || desktopLargeSrc || desktopXlSrc)">
+        <!-- Mobile XS: up to 480px -->
+        <source media="(max-width: 480px)" [srcset]="mobileXsSrc" *ngIf="mobileXsSrc">
+        <!-- Mobile: 481px to 600px -->
+        <source media="(max-width: 600px)" [srcset]="mobileSrc" *ngIf="mobileSrc">
+        <!-- Tablet: 601px to 768px -->
+        <source media="(max-width: 768px)" [srcset]="tabletSrc" *ngIf="tabletSrc">
+        <!-- Desktop Small: 769px to 1024px -->
+        <source media="(max-width: 1024px)" [srcset]="desktopMediumSrc" *ngIf="desktopMediumSrc">
+        <!-- Desktop Large: 1025px to 1200px -->
+        <source media="(max-width: 1200px)" [srcset]="desktopLargeSrc" *ngIf="desktopLargeSrc">
+        <!-- Desktop XL: 1201px and above (fallback) -->
+        <img 
+          [src]="desktopXlSrc || src" 
+          [alt]="alt"
+          class="profile-image">
+    </picture>
+
+    <!-- Simple Image (when responsive is disabled) -->
+    <img 
       [src]="src" 
       [alt]="alt"
-      placeholderType="profile"
-      borderRadius="circle"
-      width="100%"
-      height="100%">
-    </app-responsive-image>
+      class="profile-image"
+      *ngIf="!useResponsive && src">
+
+    <!-- Placeholder when no image -->
+    <div class="image-placeholder" *ngIf="!src && !useResponsive">
+      <span>P</span>
+    </div>
 </div>

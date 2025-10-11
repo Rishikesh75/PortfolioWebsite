@@ -1,14 +1,14 @@
 <div class="card" role="article" aria-label="Project: {{ title }}">
   <!-- Row 1: Media/Image -->
   <div class="row-1 media">
-    <app-responsive-image 
+    <img 
       [src]="imageUrl" 
       [alt]="imageAlt"
-      placeholderType="project"
-      borderRadius="medium"
-      width="100%"
-      height="100%">
-    </app-responsive-image>
+      class="project-image"
+      *ngIf="imageUrl">
+    <div class="image-placeholder" *ngIf="!imageUrl">
+      <span>Pr</span>
+    </div>
   </div>
 
   <!-- Row 2: Content (with adjustable height) -->

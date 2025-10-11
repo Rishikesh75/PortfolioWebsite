@@ -1,7 +1,9 @@
 // Import breakpoints
 @import '../variables/_breakpoints.less';
+@import '../variables/_spacing.less';
 
-// Responsive Mixins
+
+// Responsiveness Reasons
 .respond-to-mobile-xs(@rules) {
   @media (max-width: @mobile-xs) {
     @rules();
@@ -32,10 +34,8 @@
   }
 }
 
-// Import spacing for container mixin
-@import '../variables/_spacing.less';
 
-// Flexbox Mixins
+/*flex Types*/
 .flex-center() {
   display: flex;
   justify-content: center;

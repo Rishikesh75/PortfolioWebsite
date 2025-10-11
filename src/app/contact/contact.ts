@@ -5,6 +5,7 @@ import { SocialIcon } from '../Component/social-icon/social-icon';
 
 @Component({
   selector: 'app-contact',
+  standalone: true,
   imports: [CommonModule, FormsModule, SocialIcon],
   templateUrl: './contact.html',
   styleUrl: '../../styles/pages/_contact.less'

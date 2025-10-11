@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-skillcard',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './skillcard.html',
   styleUrl: '../../../styles/components/_skillcard.less'
